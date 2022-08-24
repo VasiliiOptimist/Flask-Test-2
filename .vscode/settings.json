@@ -1,0 +1,6 @@
+{
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.maxNumberOfProblems": 120,
+    "python.linting.lintOnSave": true
+}
