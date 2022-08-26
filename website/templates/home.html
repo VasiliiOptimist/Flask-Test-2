@@ -1,5 +1,45 @@
+<!-- prettier-ignore -->
 {% extends "base.html" %}
 {% block title %} Home page {% endblock %}
 {% block content %}
-<h1>This</h1>
+<h1 align="center">Notes</h1>
+{% for note in user.notes %}
+<div class="row">
+  <div class="col-md-9">
+    <ul class="list-group list-group-flush" id="notes">
+      <li class="list-group-item">{{note.data }}</li>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <form method="POST">
+      <input
+        type="hidden"
+        id="delete_note"
+        name="delete_note"
+        value="{{ note.id }}"
+      />
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>
+{% endfor %}
+<br />
+<div class="row">
+  <div class="col-md-9">
+    <form method="post">
+      <textarea
+        id="note"
+        name="note"
+        placeholder="Write something"
+        class="form-control"
+      >
+      </textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Note</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 {% endblock %}
